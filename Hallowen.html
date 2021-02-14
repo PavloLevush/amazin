@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hallowen 2020</title>
+<!-- 	<link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet"> -->
+    <link href="app/assets/stylesheet/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="app/assets/javascript/panelsnap.js" defer></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: "Henny Penny",Sans-serif;
+			color: #c88d1b;
+		}
+		h1{
+			color: #c88d1b;
+			font-size: 500;
+      font-family: "Henny Penny",Sans-serif;
+      font-size: 64px;
+		}
+    h2{
+      font-family: "Henny Penny",Sans-serif;
+      font-size: 32px;
+    }
+			#hero{
+			background: url(app/assets/images/Backgrounds/HalloweenBG6.png) bottom no-repeat;
+			position: relative;
+		}
+    #hero1{
+      background: url(app/assets/images/Backgrounds/HalloweenBG4.png) bottom no-repeat;
+      position: relative;
+    }
+    #hero2{
+      background: url(app/assets/images/Backgrounds/HalloweenBG2.png) bottom no-repeat;
+      position: relative;
+    }
+    #hero3{
+      background-color: #222;
+      position: relative;
+    }
+    #hero3 img{
+      left: 0px;
+      position: fixed;
+      top:125px;
+    }
+
+		#myVideo {
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			min-width: 100%;
+			min-height: 100%;
+		}
+    i{
+      color:#ffffff;
+    }
+    .hGQGyB {
+    transition: all 0.5s ease 0s;
+    text-align: center;
+    -webkit-box-align: center;
+    align-items: center;
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    color: rgb(255, 255, 255) !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    padding: 1px 14px !important;
+    letter-spacing: 0.25px !important;
+    height: 40px !important;
+    width: 250px !important;
+    line-height: 40px !important;
+    background: rgb(13, 12, 34) !important;
+    }
+	</style>
+</head>
+<body>
+	<video autoloop loop muted autoplay id="myVideo">
+		<source src="app/assets/images/media/Rain.mp4">
+	</video>
+	<section data-panel="first" id="hero" class="">
+      <div class="container text-center">
+        <h1>Welcome to Amazin <br> Halloween event</h1> 
+        <br><br>
+        <h2>Download resource pack</h2>
+        <br><br>  
+        <a rel="noopener noreferrer" href="app/assets/Amazin Hallowen pack.zip" target="_blank" class="hGQGyB"><i class="bx bxs-download"></i> Download</a>
+       <br>
+       <br>
+
+        <button class="next btn btn-light" data-panel="first"><strong>Next</strong></button>
+      </div>
+        
+    </section>
+    <section data-panel="second" id="hero1" style="display: none">
+      <div class="container text-center">
+        <h1>Quiz first</h1> 
+        <h2><br><br>Number of spoilers</h2>
+        <br><br>
+        <input type="text" name="" id="input1">
+        <button class="Check_stoilers" onclick="spoilers()">Check</button>
+        <br><br>
+        <button class="preview btn btn-light" data-panel="first"><strong>Preview</strong></button>
+      </div>
+        
+    </section>
+    <section data-panel="third" id="hero2"  style="display: none">
+      <div class="container text-center part1">
+        <h1>Quiz second (Part 1)</h1> 
+        <br><br>
+          <label>X</label>
+          <input type="text" name="X" id="input2"><br>
+          <label>Y</label>
+          <input type="text" name="Y" id="input3"><br>
+          <label>Z</label>
+          <input type="text" name="Z" id="input4"><br><br>
+          <button class="Check_stoilers" onclick="coords()">Check</button>
+          <br><br>
+        <button class="preview2 btn btn-light" data-panel="second"><strong>Preview</strong></button>
+      </div>
+      <div class="container text-center part2" style="display: none">
+        <h1>Quiz second (Part 2)</h1> 
+        <br><br>
+        <h2>Break the walls <br> <br> from 228 129 403 to 225 129 403</h2>
+        <br><br>
+        <button class="preview3 btn btn-light"><strong>Preview</strong></button>
+        <button class="next4 btn btn-light" ><strong>Next</strong></button>
+      </div>
+    </section>
+
+    <section data-panel="four" id="hero3" style="display: none">
+      <div class="container text-center">
+        <h1>Task 3 </h1> 
+        <img src="app/assets/images/earthworm_party.png" alt="">
+        <h2><br>Kill earthworm_party</h2><br><br>
+        <button class="preview4 btn btn-light" data-panel="first"><strong>Preview</strong></button>
+        <a class="btn btn-light" href="parts3.html" role="button"><strong>Next</strong></a>
+      </div>
+        
+    </section>
+
+<script>
+  var step1, first
+
+  next = document.querySelector('.next');
+  next4 = document.querySelector('.next4');
+  preview = document.querySelector('.preview');
+  preview2 = document.querySelector('.preview2');
+  preview3 = document.querySelector('.preview3');
+  preview4 = document.querySelector('.preview4');
+  first = document.querySelector('#hero');
+  second = document.querySelector('#hero1');
+  third = document.querySelector('#hero2');
+  four = document.querySelector('#hero3');
+  // third_part_1 = document.querySelector('#hero2');
+  part1 = document.querySelector('.part1');
+  part2 = document.querySelector('.part2');
+  input = document.querySelector('#input1');
+  input2 = document.querySelector('#input2');
+  input3 = document.querySelector('#input3');
+  input4 = document.querySelector('#input4');
+  document.addEventListener("DOMContentLoaded", function () {
+    next.addEventListener('click', second_show);
+    next4.addEventListener('click', four_show);
+    preview.addEventListener('click', first_show);
+    preview2.addEventListener('click', second_show);
+    preview3.addEventListener('click', third_show);
+    preview4.addEventListener('click', third_show_part2);
+  });
+
+  function second_show() {
+    first.style.display = 'none'
+    second.style.display = 'block'
+    third.style.display = 'none'
+    four.style.display = 'none'
+  }
+  function first_show() {
+    first.style.display = 'block'
+    second.style.display = 'none'
+    third.style.display = 'none'
+    four.style.display = 'none'
+  }
+  function third_show(){
+    first.style.display = 'none'
+    second.style.display = 'none'
+    part2.style.display = 'none'
+    part1.style.display = 'block'
+    four.style.display = 'none'
+  }
+  function third_show_part2(){
+    first.style.display = 'none'
+    second.style.display = 'none'
+    third.style.display = 'block'
+    part2.style.display = 'block'
+    part1.style.display = 'none'
+    four.style.display = 'none'
+  }
+  function four_show(){
+    first.style.display = 'none'
+    second.style.display = 'none'
+    third.style.display = 'none'
+    four.style.display = 'block'
+  }
+  function spoilers(){
+    count = document.getElementById('input1').value
+    console.log(count)
+      if (count == '20') {
+        first.style.display = 'none'
+        second.style.display = 'none'
+        third.style.display = 'block'
+      }
+      else{
+        input.style.borderColor = 'red';
+      }
+    }
+  function coords(){
+    x = document.getElementById('input2').value
+    y = document.getElementById('input3').value
+    z = document.getElementById('input4').value
+    if (x=="227" && y=="129" && z=="403"){
+      part1.style.display = 'none'
+      part2.style.display = 'block'
+    }
+    else if (x == "227" && y!="129" && z!= "403" ){
+      input2.style.borderColor = 'green';
+      input3.style.borderColor = 'red';
+      input4.style.borderColor = 'red';
+    }
+    else if (x != "227" && y=="129" && z!= "403" ){
+      input2.style.borderColor = 'red';
+      input3.style.borderColor = 'green';
+      input4.style.borderColor = 'red';
+    }
+    else if (x != "227" && y!="129" && z== "403" ){
+      input2.style.borderColor = 'red';
+      input3.style.borderColor = 'red';
+      input4.style.borderColor = 'green';
+    }
+    else if (x == "227" && y=="129" && z!= "403" ){
+      input2.style.borderColor = 'green';
+      input3.style.borderColor = 'green';
+      input4.style.borderColor = 'red';
+    }
+    else if (x == "227" && y!="129" && z== "403" ){
+      input2.style.borderColor = 'green';
+      input3.style.borderColor = 'red';
+      input4.style.borderColor = 'green';
+    }
+    else if (x != "227" && y=="129" && z== "403" ){
+      input2.style.borderColor = 'red';
+      input3.style.borderColor = 'green';
+      input4.style.borderColor = 'green';
+    }
+    else{
+      input2.style.borderColor = 'red';
+      input3.style.borderColor = 'red';
+      input4.style.borderColor = 'red';
+    }
+  }
+</script>
+</body>
+</html>

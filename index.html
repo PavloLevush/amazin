@@ -1,0 +1,508 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Amazin</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet">
+    <link href="app/assets/stylesheet/style.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="app/assets/javascript/panelsnap.js" defer></script>
+    <script>
+      var menu, menuItems, panelSnapInstance;
+
+      document.addEventListener("DOMContentLoaded", function () {
+        menu = document.querySelector('.menu');
+        menuItems = menu.querySelectorAll('button');
+
+        panelSnapInstance = new PanelSnap();
+        panelSnapInstance.on('activatePanel', activateMenuItem);
+
+        menuItems.forEach(function (menuItem) {
+          menuItem.addEventListener('click', onButtonClick);
+        })
+      });
+
+      function activateMenuItem(panel) {
+        menuItems.forEach(function (menuItem) {
+          menuItem.classList.remove('active');
+        });
+
+        var panelName = panel.getAttribute('data-panel')
+        var menuItem = menu.querySelector('button[data-panel="' + panelName + '"]');
+        menuItem.classList.add('active');
+      }
+
+      function onButtonClick(e) {
+        var panelName = e.target.getAttribute('data-panel')
+        console.log(e)
+        var panel = document.querySelector('section[data-panel="' + panelName + '"]');
+        panelSnapInstance.snapToPanel(panel);
+      }
+    </script>
+    <style>
+      .bg-rules{
+        background-color: #c4c4c4;
+      }
+      #hero{
+        background: url(app/assets/images/survive.png) right center no-repeat;
+        background-color: #252a34;
+        position: relative;
+      }
+      @media (max-width: 992px) {
+        #hero {
+          background: url(app/assets/images/survive.png) center 5vh no-repeat;
+          background-color: #252a34;
+          background-size: 35vh;
+        }
+      }
+      @media (min-width: 992px) and (max-width: 1172px) {
+        #hero {
+          background: url(app/assets/images/survive.png) right center no-repeat;
+          background-color: #252a34;
+          background-size: 38vh;
+        }
+        #hero h1{
+          font-size: 48px;
+        }
+      }
+      #pers{
+        background: url(app/assets/images/creeper.png) left center no-repeat;
+        background-color: #252a34;
+      }
+      @media (max-width: 599px) {
+        #pers {
+          background: url(app/assets/images/creeper.png) left center no-repeat;
+          background-color: #252a34;
+          background-size: 35vh;
+        }
+      }
+      @media (min-width: 600px) and (max-width: 1172px){
+        #pers {
+          background: url(app/assets/images/creeper.png) left center no-repeat;
+          background-color: #252a34;
+          background-size: 75vh;
+        }
+      }
+      #rules{
+        background: url(https://vignette.wikia.nocookie.net/minecraft/images/0/0a/Ender_Dragon.gif/revision/latest/scale-to-width-down/350?cb=20200819042230) right top no-repeat;
+        background-color: #252a34;
+      }
+      h1 {
+        margin: 0;
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 56px;
+        color: #fff;
+      }
+      .col h1 {
+        font-size: 40px;
+        font-weight: 600;
+      }
+      .col h2{
+        font-size: 20px;
+      }
+      @media (max-width: 991px) {
+        #hero {
+          text-align: center;
+        }
+        h1 {
+          font-size: 32px;
+          line-height: 36px;
+        }
+        p {
+          margin-top: 10px;
+          font-size: 20px;
+          line-height: 24px;
+        }
+      }
+      h2{
+        margin: 0;
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 28px;
+        color: #fff;
+      }
+      h2 span{
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 28px;
+        color: #fff;
+      }
+      h2 a{
+        font-size: 32px;
+        display: inline-block;
+        color: #ffccff;
+        line-height: 1;
+        margin-right: 20px;
+        transition: 0.3s;
+      }
+      p {
+        color: #fff;
+        margin: 15px 0 0 0;
+        font-size: 26px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      p span {
+        color: #ff2e63;
+        letter-spacing: 1px;
+      }
+      .arrow {
+        font-size: 65px;   
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 25px;
+        text-align: center;
+        position: absolute;
+        list-style: none;
+        justify-content: center;
+      }
+      .text-shadow{
+        color: #f4f4f4;
+        text-shadow: -1px -1px white, 1px 1px gray, 2px 2px #7a7a7a, 3px 3px #757575, 4px 4px #707070, 5px 5px #6b6b6b, 6px 6px #666666, 7px 7px #616161, 8px 8px #5c5c5c, 9px 9px #575757, 10px 10px #525252, 11px 11px #4d4d4d, 18px 18px 30px rgba(0, 0, 0, .4), 18px 18px 10px rgba(0, 0, 0, .4);
+
+      }
+      .logo-shadow{
+        letter-spacing: .1em;
+        color: #f4f4f4;
+        text-shadow: -1px -1px white, 1px 1px gray, 2px 2px #7a7a7a, 3px 3px #757575, 4px 4px #707070, 5px 5px #6b6b6b, 6px 6px #666666, 7px 7px #616161, 8px 8px #5c5c5c, 9px 9px #575757, 10px 10px #525252, 11px 11px #4d4d4d, 18px 18px 30px rgba(0, 0, 0, .4), 18px 18px 10px rgba(0, 0, 0, .4);
+      }
+
+
+      .demo{
+            font-family: 'Comic Sans MS', italic;
+            background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-animation: hue 5s infinite linear;
+        }
+        .coun{
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            margin: 0 30px;
+            font-size: 12px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .demo span{
+            display: block;
+            font-size: 26px;
+            margin-top: 5px;
+        }
+
+        @-webkit-keyframes hue {
+            from {
+              -webkit-filter: hue-rotate(0deg);
+            }
+            
+            to {
+              -webkit-filter: hue-rotate(360deg);
+            }
+        }
+        hr{
+            margin: auto;
+            width: 80%;
+        }
+        .middle{
+            position:   ;
+            top:50%;
+            left: 50%;
+            /*transform: translate(-50%,-50%);*/
+            text-align: ;
+        }
+        .snowflake {
+          color: #fff;
+          font-size: 1em;
+          font-family: Arial;
+          text-shadow: 0 0 1px #000;
+        }
+@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}
+    </style>
+  </head>
+  <body>
+    <div class="snowflakes" aria-hidden="true">
+  <div class="snowflake">
+  ❅
+  </div>
+  <div class="snowflake">
+  ❅
+  </div>
+  <div class="snowflake">
+  ❆
+  </div>
+  <div class="snowflake">
+  ❄
+  </div>
+  <div class="snowflake">
+  ❅
+  </div>
+  <div class="snowflake">
+  ❆
+  </div>
+  <div class="snowflake">
+  ❄
+  </div>
+  <div class="snowflake">
+  ❅
+  </div>
+  <div class="snowflake">
+  ❆
+  </div>
+  <div class="snowflake">
+  ❄
+  </div>
+  
+</div>
+    <section data-panel="first" id="hero" class="d-flex flex-column justify-content-center">
+      <div class="container" data-aos="zoom-in" data-aos-duration="1500">
+        <h1 class="logo-shadow">Welcome to Amazin</h1>
+        <!-- <img src="app/assets/images/creeper.png" alt="" class="right"> -->
+        <p>Amazin it's <span class="typed"></span></p>
+        <div class="social-links">
+          <a href="#" class="discord"><i class="bx bxl-discord"></i></a>
+          <a href="#" class="trending-up"><i class='bx bx-trending-up'></i></a>
+        </div>
+      </div>
+        <i class="arrow bx bx-chevrons-down bx-fade-down"></i>
+    </section>
+
+    <section data-panel="second" id="pers" class="d-flex flex-column justify-content-center">
+        <div class="container" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+          <h1 class="text-shadow">Персонал</h1>
+          <h2 class="text-danger">OWNER</h2>
+          <p class="">EgorGaming_Yt</p> 
+          <h2 class="text-dark-red">Admin</h2>
+          <p>HFQ</p>
+          <h2 class="text-info">Helpers</h2>
+          <!-- <p>Artubass <span class="social-link"><a href="#" class="discord"><i class="bx bxl-discord"></i></a></span></p> -->
+          <p>Ralsei_55</p>
+          <h2 class="text-primary">Discord-Helpers</h2>
+          <p>Artubass</p>
+          <h2 class="text-warning">Programmer</h2>
+          <p>danya343</p>
+          <h2 class="text-success">Web-developer</h2>
+          <p>earthworm_party</p>
+        </div>
+    </section>
+    <section data-panel="third" id="rules" class="d-flex flex-column justify-content-center">
+      <div class="container">
+        <h1 class="text-center text-shadow">Правила</h1>
+        <br>
+        <div class="accordion text-center" id="accordionExample">
+        <div class="card bg-rules ">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+               Общее положение
+              </button>
+            </h2>
+          </div>
+
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" style="">
+            <div class="card-body text-left font-weight-bold" style="font-family: Times;">
+                 1.1 Запрещено причинять вред серверу (различные лаг-машины, нагрузка запросами, DDOS, вызывать отключение сервера). За обход данного правила любыми способами, будет применено наказание. <span class="text-danger">Наказание: на усмотрение администрации</span><br>
+                 1.2 Проект является бесплатной и некоммерческой структурой, предоставляющей игровые услуги. Любые вложения Ваших денежных средств осуществляются на добровольной основе и идут на улучшение качества серверов. Возврат пожертвованных денег не предусматривается ни при каких условиях. <br>
+                 1.3 Модератор и администратор имеет право самовольно придумывать сроки наказания за нарушения, которые не значатся в данных правилах.<br>
+                 1.4 Администрация проекта имеет право изменять пункты всех правил проекта в любое время суток без предупреждения игроков. Все изменения размещаются на сайте и вступают в силу с момента размещения. Пользователь обязуется самостоятельно знакомиться со всеми изменениями и дополнениями не реже одного раза в два календарных дня.<br>
+                 1.5 Последнее слово всегда за администрацией проекта.<br>
+                 1.6 Если вы, сначало получили от кого-либы из Администрации Оператора сервера, и после он пропал, то есть 2 варианта: <br>
+                 <span class="text-info"> 1.   Данное действие не было подтверждено группой Owner или Администратор+; <br>
+                  2.   Администрацию не устроили ваши действия или ваше поведение</span>
+            </div>
+          </div>
+        </div>
+        <div class="card bg-rules">
+          <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Общение в игровом чате
+              </button>
+            </h2>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample" style="">
+            <div class="card-body text-left font-weight-bold" style="font-family: Times;">
+              2.1 Запрещено выпрашивание каких-либо ресурсов у персонала и администрации. <span class="text-danger">Наказание: Тебя просто проигнорят :)</span><br>
+              2.2 Запрещены матерные слова и высказывания в любой форме, чрезмерна грубая лексика, а также использование нецензурных символов в чате. (возможны исключения)<span class="text-danger"> Наказание: Мут от 10 минут до 1 часа.</span><br>
+              2.3 Запрещены любые виды оскорблений:<br>
+               *   Запрещены оскорбления игроков, а также любые угрозы в чью-либо сторону.<br>
+               *   Запрещено оскорбление (упоминание) родителей в грубой форме.<br>
+               *   Запрещено оскорбление проекта и её администрации в любом виде.<br>
+              <span class="text-danger">Наказание: Предупреждение , Мут от 10 минут до 1 часа.</span><br>
+              2.4 Запрещен спам в любой форме. <span class="text-danger">Наказание: Мут от 5 минут до 1 часа</span><br>
+              2.5  Не разрешается написание сообщений в верхнем регистре несколько раз.<span class="text-danger">Наказание: Мут на 30 минут.</span><br>
+              2.6 Запрещено неадекватное поведение. <span class="text-danger">Наказание: Предупреждение, Мут от 10 минут до 1 часа.</span><br>
+              2.7 Проявлять чрезмерно токсичное поведение по отношению к другим пользователям и серверу.<span class="text-danger"> Наказание: Предупреждение , Мут от 20 минут до 2 часов.</span><br>
+              2.8 Реклама:<br>
+               *   Запрещена РЕКЛАМА сторонних интернет-ресурсов. Игрокам со статусом YouTube разрешается рекламировать только свой канал или стрим, если он в данный момент идёт (Раз в 15 минут).<br>
+               *   Запрещено упоминание/реклама других серверов. (Исключения PrisonHardBETA.aternos.me, AmazinMiniGames.aternos.me SSallary.aternos.me, mc.diamondworld.pro )<br>
+               <span class="text-danger">Наказание: Предупреждение , Мут от 6 часов до 1 дня.</span><br>
+              2.9 Запрещена провокация игроков на нарушение правил.<span class="text-danger"> Наказание: Предупреждение, на усмотрение Администрации</span><br>
+            </div>
+          </div>
+        </div>
+        <div class="card bg-rules">
+          <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Игровой процесс
+              </button>
+            </h2>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body text-left font-weight-bold" style="font-family: Times;">
+              3.1 Запрещается использовать любые модификации клиента, а так же сторонние ПО, иными словами - Читы и модфикации облегчающие получение внутриигровых ресурсов, дающие дополнительные способности персонажу и так далее.<span class="text-danger"> Наказание Бан - время зависит от Администрации.</span><br>
+              3.2 Запрещено использовать игровые баги, дюпы, баги связанные с ценами, и т.д.<span class="text-danger"> Наказание:  Бан - время на усмотрение Администрации.</span><br>
+              3.3 Запрещено строить, нацистскую символику и атрибутику, а также символику и атрибутику экстремистских организаций. Запрещено строить постройки чрезмерно нагружающие сервер, а так же нецензурные постройки.<span class="text-danger"> Наказание: Снос постройки на усмотрение Администрации</span><br>
+              3.4 Многократное нарушение правил.(Если вы за раз нарушили 4 и более правил.)<span class="text-danger"> Наказание: Бан от 4 часов до 2х дней.</span><br>
+              3.5 Запрещено обходить каким-либо образом выданные наказания (мут/бан).<span class="text-danger">Бан по айпи - время на усмотрение Администрации</span><br>
+            </div>
+          </div>
+        </div>
+          <div class="card bg-rules">
+              <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Обязанности и права персонала
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                <div class="card-body text-left font-weight-bold" style="font-family: Times;">
+                  4.1 Персонал не может телепортировать, просить их об этом бесполезно.<br>
+                  4.2 Персонал обязан отвечать на вопросы игроков по игре и проекту в рамках своих прав и возможностей.<br>
+                  4.3 Запрещено пользоваться служебным положением, что бы продавать любые услуги другим игрокам.<br>
+                  4.4 Персонал — добровольцы, помогающие Администраторам в управлении сервером и слежении за порядком.<br>
+              </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+    <section data-panel="fourth" id="hero" class="d-flex flex-column justify-content-center">
+      <div class="container" data-aos="zoom-in" data-aos-duration="1500">
+        <h1 class="logo-shadow text-center">Другие наши сервера</h1><br><br>
+        <div class="row text-light text-center justify-content-center">
+            <div class="col border-info border m-2 rounded">
+              <h1>Amazin</h1> <br>
+              <h2>Владелец:</h2> <p>EgorGaming_Yt</p> <br>
+              <h2>Версия:</h2> <p>1.14.4</p> <br>
+              <h2>IP:</h2> <p>95.217.224.152:26210</p> <br>
+              <h2>Plugins:</h2> <p><span>SHOPKEEPERS<br>ESSENTIALS<br>LOGINSECURITY<br>LUCKPERMS</span></p> <!-- <p><span class="plugin"></span></p> -->
+            </div>
+            <div class="col border-info border m-2 rounded">
+              <h1>Amazin Mini-Games</h1><br>
+              <h2>Владелец:</h2> <p>EgorGaming_Yt</p> <br>
+              <h2>Версия:</h2> <p>1.14.4</p> <br>
+              <h2>IP:</h2> <p>AmazinMiniGames.aternos.me</p> <br>
+            </div>
+            <div class="col border-info border m-2 rounded">
+              <h1>Prison Hard</h1><br>
+              <h2>Владелец:</h2> <p>EgorGaming_Yt</p> <br>
+              <h2>Версия:</h2> <p>1.14.4</p> <br>
+              <h2>IP:</h2> <p>Prisonhardbeta.aternos.me</p> <br>
+            </div>
+      </div>
+    </section>
+
+    <ul class="menu">
+      <li>
+        <button data-panel="first"><i class='bx bx-home'></i>Главная</button>
+      </li>
+      <li>
+        <button data-panel="second">Персонал</button>
+      </li>
+      <li>
+        <button data-panel="third">Правила</button>
+      </li>
+      <li>
+        <button data-panel="fourth">Наши сервера</button>
+      </li>
+    </ul>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js" defer></script>
+
+    <script>
+      AOS.init();
+
+      $(function(){
+        $(".typed").typed({
+          strings: ["Vanilla.","Survival.", "PVP.", "Anarchy.","Events."],
+          // Optionally use an HTML element to grab strings from (must wrap each string in a <p>)
+          stringsElement: null,
+          // typing speed
+          typeSpeed: 60,
+          // time before typing starts
+          startDelay: 1200,
+          // backspacing speed
+          backSpeed: 20,
+          // time before backspacing
+          backDelay: 500,
+          // loop
+          loop: true,
+          // show cursor
+          showCursor: false,
+          // character for cursor
+          cursorChar: "|",
+          // attribute to type (null == text)
+          attr: null,
+          // either html or text
+          contentType: 'html',
+          // call when done callback function
+          callback: function() {},
+          // starting callback function before each string
+          preStringTyped: function() {},
+          //callback for every typed string
+          onStringTyped: function() {},
+          // callback for reset
+          resetCallback: function() {}
+        });
+      });
+    $(function(){
+        $(".plugin").typed({
+          strings: ["SHOPKEEPERS.","ESSENTIALS.", "LOGINSECURITY.", "ESSENTIALSSPAWN.","ESSENTIALSCHAT.","ESSENTIALSXMPP."],
+          // Optionally use an HTML element to grab strings from (must wrap each string in a <p>)
+          stringsElement: null,
+          // typing speed
+          typeSpeed: 60,
+          // time before typing starts
+          startDelay: 1200,
+          // backspacing speed
+          backSpeed: 20,
+          // time before backspacing
+          backDelay: 500,
+          // loop
+          loop: true,
+          // show cursor
+          showCursor: false,
+          // character for cursor
+          cursorChar: "|",
+          // attribute to type (null == text)
+          attr: null,
+          // either html or text
+          contentType: 'html',
+          // call when done callback function
+          callback: function() {},
+          // starting callback function before each string
+          preStringTyped: function() {},
+          //callback for every typed string
+          onStringTyped: function() {},
+          // callback for reset
+          resetCallback: function() {}
+        });
+      });
+    </script>
+  </body>
+</html>

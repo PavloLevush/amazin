@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>	
+    <meta charset="utf-8">
+    <title>Winter</title>
+    <link rel="stylesheet" href="app/assets/snow.css">
+</head>
+<body>
+    <div class="middle">
+
+        <h1 id="name">COMING SOON</h1>
+        <a href="#" class="button">Download resourcepack</a>
+        <div class="demo">
+
+            <div class="coun">
+                <span id="days"></span>
+                DAYS
+            </div>
+            <div class="coun">
+                <span id="hours"></span>
+                HOURS
+            </div>
+             <div class="coun">
+                <span id="min"></span>
+                MINUTES
+            </div>
+             <div class="coun">
+                <span id="sec"></span>
+                SECONDS
+            </div>
+        </div>
+
+    </div>
+    <audio autoplay loop>
+        <source src="app/assets/song.mp3" type="audio/mpeg">
+    </audio>
+    <div class="container snowy">
+        <canvas width="1157" height="954"></canvas>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
+    <script type="text/javascript" src="app\assets\javascript\three.canvas.js"></script>
+    <script type="text/javascript" src="app\assets\javascript\snowy.js"></script>
+
+</body>
+<script type="text/javascript">
+    var countDownDate = new Date("Dec 31, 2020 10:41:00").getTime();
+
+    var countDownfunction = setInterval(function(){
+
+        var now = new Date().getTime();
+
+        var now1 = new Date().getTime();
+
+        var distance = countDownDate - now ;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 *24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 *24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        var hour = Math.floor((now1 % (1000 * 60 * 60 *24)) / (1000 * 60 * 60));
+        var minute = Math.floor((now1 % (1000 * 60 * 60)) / (1000 * 60));
+        var second = Math.floor((now1 % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("min").innerHTML = minutes;
+        document.getElementById("sec").innerHTML = seconds;
+
+        if (distance <= 0){
+            clearInterval(countDownfunction)
+            window.location.replace("https://amazin-server.000webhostapp.com/winters.html");
+        }
+    })
+$(function(){
+	//active snow
+	if($.isFunction($.fn.snowy))
+	{
+		$('.snowy').each(function()
+		{
+			//check for data
+			if($(this).is('[data-snowy]'))
+			{
+				$(this).snowy($(this).data('snowy'));
+			}
+			else
+			{
+				$(this).snowy();
+			}
+		});
+	}
+})
+</script>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8" />
+<title>Christmas Card</title>
+<!-- particles.js container -->
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+<style type="text/css">
+	html,body{ 
+	  width:100%;
+	  height:100%;
+	  margin:0; 
+	  font-family: 'Pacifico', cursive;
+	  
+	  display: flex;
+	  justify-content:center;
+	  align-items:center;
+	}
+	canvas{ 
+	  display: block;
+	  vertical-align: bottom;
+	}
+	/* ---- particles.js container ---- */ 
+	#particles-js{ 
+	  position:absolute; 
+	  top:0;
+	  left:0;
+	  width: 100%; 
+	  height: 100%; 
+	  background-color: #041728; 
+	  background-image: url("https://images.unsplash.com/photo-1513297887119-d46091b24bfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"); 
+	  background-repeat: no-repeat; 
+	  background-size: cover;
+	  background-position: 0; 
+	  z-index:0;
+	}
+	.text{
+	  color:#fff;
+	  font-size:7vw;
+	  position:inline-block;
+	  z-index:1;
+	  text-align:center;
+	  cursor:default;
+	  pointer-events:none;
+	}
+	a:hover, a:visited, a:link, a:active{
+	  text-decoration: none;
+	  color: rgba(255,255,255,0.8);
+	}
+   .lightrope {
+   text-align: center;
+   white-space: nowrap;
+   overflow: hidden;
+   position: absolute;
+   z-index: 1;
+   margin: -15px 0 0 0;
+   padding: 0;
+   pointer-events: none;
+   width: 100%;
+   top: 0;
+}
+ .lightrope li {
+   position: relative;
+   animation-fill-mode: both;
+   animation-iteration-count: infinite;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: block;
+   width: 12px;
+   height: 28px;
+   border-radius: 50%;
+   margin: 20px;
+   display: inline-block;
+   background: rgba(0, 247, 165, 1);
+   box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 247, 165, 1);
+   animation-name: flash-1;
+   animation-duration: 2s;
+}
+ .lightrope li:nth-child(2n+1) {
+   background: rgba(0, 255, 255, 1);
+   box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 255, 255, 0.5);
+   animation-name: flash-2;
+   animation-duration: 0.4s;
+}
+ .lightrope li:nth-child(4n+2) {
+   background: rgba(247, 0, 148, 1);
+   box-shadow: 0px 4.6666666667px 24px 3px rgba(247, 0, 148, 1);
+   animation-name: flash-3;
+   animation-duration: 1.1s;
+}
+ .lightrope li:nth-child(odd) {
+   animation-duration: 1.8s;
+}
+ .lightrope li:nth-child(3n+1) {
+   animation-duration: 1.4s;
+}
+ .lightrope li:before {
+   content: "";
+   position: absolute;
+   background: #222;
+   width: 10px;
+   height: 9.3333333333px;
+   border-radius: 3px;
+   top: -4.6666666667px;
+   left: 1px;
+}
+ .lightrope li:after {
+   content: "";
+   top: -14px;
+   left: 9px;
+   position: absolute;
+   width: 52px;
+   height: 18.6666666667px;
+   border-bottom: solid #222 2px;
+   border-radius: 50%;
+}
+ .lightrope li:last-child:after {
+   content: none;
+}
+ .lightrope li:first-child {
+   margin-left: -40px;
+}
+ @keyframes flash-1 {
+   0%, 100% {
+     background: rgba(0, 247, 165, 1);
+     box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 247, 165, 1);
+  }
+   50% {
+     background: rgba(0, 247, 165, 0.4);
+     box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 247, 165, 0.2);
+  }
+}
+ @keyframes flash-2 {
+   0%, 100% {
+     background: rgba(0, 255, 255, 1);
+     box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 255, 255, 1);
+  }
+   50% {
+     background: rgba(0, 255, 255, 0.4);
+     box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 255, 255, 0.2);
+  }
+}
+ @keyframes flash-3 {
+   0%, 100% {
+     background: rgba(247, 0, 148, 1);
+     box-shadow: 0px 4.6666666667px 24px 3px rgba(247, 0, 148, 1);
+  }
+   50% {
+     background: rgba(247, 0, 148, 0.4);
+     box-shadow: 0px 4.6666666667px 24px 3px rgba(247, 0, 148, 0.2);
+  }
+}
+</style>
+</head> 
+ 
+<body> 
+<audio src="https://sentinelc3.s3.amazonaws.com/tcob.mp3" autoplay></audio>
+<ul class="lightrope">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+<div id="particles-js"></div> 
+<span class = 'text'>Happy New Year <br> and Merry Christmas 
+</span>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script type="text/javascript">
+	particlesJS("particles-js", {
+  particles: {
+    number: { value: 400, density: { enable: true, value_area: 800 } },
+    color: { value: "#fff" },
+    shape: {
+      type: "circle",
+      stroke: { width: 0, color: "#000000" },
+      polygon: { nb_sides: 5 },
+      image: { src: "img/github.svg", width: 100, height: 100 }
+    },
+    opacity: {
+      value: 0.7260172626387177,
+      random: true,
+      anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+    },
+    size: {
+      value: 10,
+      random: true,
+      anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+    },
+    line_linked: {
+      enable: false,
+      distance: 500,
+      color: "#ffffff",
+      opacity: 0.4,
+      width: 2
+    },
+    move: {
+      enable: true,
+      speed: 4.810221721157459,
+      direction: "bottom-left",
+      random: false,
+      straight: false,
+      out_mode: "out",
+      bounce: false,
+      attract: {
+        enable: false,
+        rotateX: 481.02217211574595,
+        rotateY: 1523.236878366529
+      }
+    }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: true, mode: "bubble" },
+      onclick: { enable: true, mode: "repulse" },
+      resize: true
+    },
+    modes: {
+      grab: { distance: 383.61638361638364, line_linked: { opacity: 0.5 } },
+      bubble: {
+        distance: 467.53246753246754,
+        size: 3.996003996003996,
+        duration: 0.3196803196803197,
+        opacity: 1,
+        speed: 3
+      },
+      repulse: { distance: 200, duration: 0.4 },
+      push: { particles_nb: 4 },
+      remove: { particles_nb: 2 }
+    }
+  },
+  retina_detect: true
+});
+// var count_particles, stats, update;
+// stats = new Stats();
+// stats.setMode(0);
+// stats.domElement.style.position = "absolute";
+// stats.domElement.style.left = "0px";
+// stats.domElement.style.top = "0px";
+// document.body.appendChild(stats.domElement);
+// count_particles = document.querySelector(".js-count-particles");
+// update = function() {
+//   stats.begin();
+//   stats.end();
+//   if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+//     count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+//   }
+//   requestAnimationFrame(update);
+// };
+// requestAnimationFrame(update);
+
+</script>
+</body> 
+</html> 
